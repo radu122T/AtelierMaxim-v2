@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:"Open Sans", sans-serif;
+}
+.firstSectioninLP {
+    background-color:#797A7E;
+    width:100%;
+    height:80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-weight: 700;
+    font-size:2rem;
+}
+
+
+.secondSectioninLP {
+    margin:0 15%;
+    display:flex;
+    justify-content: space-between;
+}
+.autent, .inreg {
+    margin:60px 5%;
+}
+
+
+.inreg{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.box {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.box input[type='text'], .box input[type='password']{
+    display:block;
+    border:0;
+    width:50vh;
+    height: 2.5em;
+    padding:10px;
+    border:1px solid rgba(128, 128, 128, 0.616)
+}
+.box input[type='text']:focus, .box input[type='password']:focus {
+    outline:none;
+    border:1px solid rgba(128, 128, 128, 1);
+    box-shadow: 0 0 1px black;
+}
+
+.box input[type='submit'] {
+    width:50vh;
+    height: 2.5em;
+    margin-top:5%;
+    height: 2.5rem;
+    
+}
+.buttonInreg {
+    width:15vh;
+    height:2.5rem; 
+}
+.autent input[type='submit'], .inreg input[type='submit'] {
+    background-color: #797A7E;
+    color:white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size:0.7rem;
+    border:0;
+    border-radius:7px;
+}
+
+.autent input[type='submit']:hover, .inreg input[type='submit']:hover{
+    background-color:rgb(98, 99, 102);
+    cursor: pointer;
+}
+.star {
+    color:red;
+}
+
+.upperspan, .upperspanSecond{
+    display:inline-block;
+    font-weight: 400;
+    font-size:0.9rem;
+}
+
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    font-size:1.1rem;
+    margin-bottom: 30px;
+}
+
+.upperspanSecond {
+    margin-top:5%;
+}
+
+.forgotP {
+    display:flex;
+    justify-content: space-between;
+    font-size:0.9rem;
+    margin-top:10px;
+}
+
+.socialMedia {
+    display:flex;
+    justify-content: center;
+}
+
+.facebook, .google {
+    display: inline-block;
+    width:50%;
+    height: 2.5rem;
+    margin:0 2%;
+}
+.google {
+    margin-right:0;
+}
+main .autent .facebook {
+    background-color: #4267B2;
+}
+
+main .autent .google {
+    background-color: #DB4437;
+}
+
+main .autent .facebook:hover{
+    background-color:#395ca0;
+}
+main .autent .google:hover {
+    background-color: #c93e31;
+}
+
+.socialMedia i {
+    color:white;
+    float: right;
+    margin-right: -40px;
+    font-size:1.7rem;
+    position: relative;
+    z-index: 2;
+    margin-top:7px;
+}
+
+.diffAut{
+    text-align: center;
+}
+
+.diffAut span{
+    display:inline-block;
+    margin:20px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size:0.8rem;
+}
+
+input[type='checkbox'] {
+    cursor:pointer;
+    height:15px;
+    width:15px;
+    background-color: #eee;
+}
+
+.forgotP div {
+    text-align: center;
+    display:flex;
+    text-align: center;
+}
+
+h3 {
+    display: flex;
+    flex-direction: row;
+  }
+
+h3:before, h3:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid lightgrey;
+  margin: auto;
+}
+h3:before {
+  margin-right: 10px
+}
+h3:after {
+  margin-left: 10px
+}
+
+.inreg p {
+    font-size:0.9rem;
+    text-align: center;
+    margin-bottom:30px;
+    color:rgb(129, 129, 129)
+}

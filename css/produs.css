@@ -1,0 +1,99 @@
+main {
+    margin:5% 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    color: rgba(0, 0, 0, 0.829);
+
+}
+
+.firstSectionProdus img {
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:cover;
+    object-position:center;
+}
+
+
+
+.secondSectionProdus h1 {
+    text-align: center;
+    font-size:2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.box {
+    width: 130px;
+    height: 25px;
+    border: 1px solid #999;
+    color: rgba(0, 0, 0, 0.829);
+    background-color:white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.secondSectionProdus input {
+    width:30px;
+    text-align: center;
+}
+
+.secondSectionProdus ul li {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 2px dotted lightgrey;
+    padding-bottom: 9px;
+}
+
+.lastInput  {
+    padding-right:50px;
+    
+}
+.greutate {
+    padding-right:40px;
+    font-size: 0.93rem;
+    font-weight: 400;
+}
+
+.lastSpan {
+    display: block;
+}
+
+.lastSectionProdus {
+    display:flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.lastSectionProdus div {
+    display:flex;
+    text-align: center;
+    align-items: center;
+}
+
+.lastSectionProdus div span {
+    color:grey;
+}
+
+.lastSectionProdus h3 {
+    color:#FF7700;
+    font-size:1.5rem;
+    font-weight: 500;
+    padding-right: 10px;
+}
+.secondSectionProdus li > span {
+    font-weight: 600;
+}
+
+.cartAdd {
+    background-color: #FF7700;
+    color: white;
+    padding:10px;
+    border-radius:5px;
+    
+}

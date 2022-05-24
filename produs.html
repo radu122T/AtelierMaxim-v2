@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="Atelierul Maxim">
+    	<meta name="keywords" content="Atelier, lemn, licheni, Maxim">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content = "width=device-width, initial-scale=0">
+
+		<title>Atelierul Maxim</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/produs.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+		<!-- Icon -->
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="icon/apple-touch-icon-57x57.PNG" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="icon/apple-touch-icon-114x114.PNG" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="icon/apple-touch-icon-72x72.PNG" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon/apple-touch-icon-144x144.PNG" />
+		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="icon/apple-touch-icon-60x60.PNG" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="icon/apple-touch-icon-120x120.PNG" />
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="icon/apple-touch-icon-76x76.PNG" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="icon/apple-touch-icon-152x152.PNG" />
+		<link rel="icon" type="image/PNG" href="/icon/favicon-196x196.PNG" sizes="196x196" />
+		<link rel="icon" type="image/PNG" href="/icon/favicon-96x96.PNG" sizes="96x96" />
+		<link rel="icon" type="image/PNG" href="/icon/favicon-32x32.PNG" sizes="32x32" />
+		<link rel="icon" type="image/PNG" href="/icon/favicon-16x16.PNG" sizes="16x16" />
+		<link rel="icon" type="image/PNG" href="/icon/favicon-128.PNG" sizes="128x128" />
+		<meta name="application-name" content="&nbsp;"/>
+		<meta name="msapplication-TileColor" content="#FFFFFF" />
+		<meta name="msapplication-TileImage" content="mstile-144x144.PNG" />
+		<meta name="msapplication-square70x70logo" content="mstile-70x70.PNG" />
+		<meta name="msapplication-square150x150logo" content="mstile-150x150.PNG" />
+		<meta name="msapplication-wide310x150logo" content="mstile-310x150.PNG" />
+		<meta name="msapplication-square310x310logo" content="mstile-310x310.PNG" />
+
+	</head>
+
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                 <ul>
+                     <div class="leftSide">
+                        <li>
+                            <a href="mailto:comenzi@atelierulmaxim.ro"><i class="fa-solid fa-envelope"></i> comenzi@atelierulmaxim.ro</a>
+                        </li>
+
+                     </div>
+                     <li> 
+                         <a class="logo" href="/index.html"><img src="/images/logo.JPEG" alt=""></a>
+                     </li>
+                     <div class="rightSide">
+                         
+
+                         <li>
+                            <a href="/logInPage.html"><i class="fa-solid fa-user"></i> Cont / Inregistrare</a>
+                         </li>
+
+                         <li>
+                        <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                     </li>
+                    </div>
+                 </ul> 
+                 
+            </div>
+        </nav>
+        <header>
+            <section>
+                <div class="dropdown" data-dropdown>
+                    <button class="link" data-dropdown-button ><i class="fa-solid fa-bars"></i> Categorii Produse</button>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li>
+                                <a href="#">Produse fizice</a>
+                            </li>
+                            <li>
+                                <a href="#">Produse digitale</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-wrapper">
+                    <input type="search" class="search" placeholder="Cauta produse">
+                    <button type="submit" class="searchbar_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    
+                </div>
+            </section>
+        </header>
+            <main>
+                <section class="firstSectionProdus">
+                    <img src="/images/lemn.jpg" alt="">
+                </section>
+                <section class="secondSectionProdus">
+                    <h1>Copacul vietii</h1>
+                    
+                        <ul>
+                            <li>
+                                <span>Greutate:</span>
+                                <span class="greutate">0.45kg</span>
+                            </li>
+                            <li>
+                                <span>Suport:</span>
+                                <select class="box">
+                                    <option value="1">Da</option>
+                                    <option value="2">Nu</option>
+                                </select>
+                            </li>
+                            <li class="custom-select">
+                                <span>Gravura:</span>
+                                <select class="box">
+                                    <option value="1">Fara</option>
+                                    <option value="2">Pe suport</option>
+                                    <option value="3">Pe copac</option>
+                                    <option value="4">Suport + copac</option>
+                                </select>
+                            </li>
+                            <li class="lastInput">
+                                <span>Cantitate:</span>
+                                <input type="text" value="1">
+                            </li>
+                        </ul>
+                        <section class="lastSectionProdus">
+                            <div>
+                                <h3>15lei</h3>
+                                <span class="lastSpan">(TVA inclus)</span>
+                            </div>
+                            <span class="cartAdd"><a href="">Adauga in cos</a></span>
+                        </section>
+                </section>
+            </main>
+        <footer>
+            <div class="footer">
+                <h4><a href="">AtelierulMaxim.ro</a></h4>
+                <section class="footerOne">
+                    <a href="#">Cont</a>
+                    |
+                    <a href="#">Cos</a>
+                </section>
+                <section class="footerTwo">
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href=""><i class="fa-solid fa-envelope"></i></a>
+                </section>
+                <section class="footerThree">
+                    <span class="copyright" >Copyright <i class="fa-solid fa-copyright"></i>2022 All rights reserved | Made by: <a href="https://radu122t.github.io/MySite/">www.radu122t.io</a>  </span>
+                </section>
+                
+            </div>
+        </footer>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/167d4e62b2.js" crossorigin="anonymous"></script>
+</body>
+</html>
