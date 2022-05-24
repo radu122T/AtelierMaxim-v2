@@ -21,9 +21,12 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+
 html {
-     background-color:rgba(23, 23, 23, 0.966)
+     background-color:rgba(23, 23, 23, 0.966);
+     
 }
+
 body {
      display: grid;
      grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -39,6 +42,8 @@ body {
      margin:0 6%;
      color:white;
      height: 100%;
+     text-rendering: optimizeLegibility;
+
 }
 
 nav {
@@ -151,7 +156,7 @@ nav .container ul {
      justify-self: end;
      grid-area: cont;
      align-self: center;
-
+     font-size:0.9rem;
 }
 
 .rightSide a{
@@ -193,9 +198,9 @@ img {
 }
 
 header .firstSection {
-     width:62%;
+     width:50%;
      max-width:500px;
-     min-width:250px;
+     min-width:200px;
      position:absolute;
      left:37%;
      top:15vh;
@@ -204,7 +209,7 @@ header .firstSection {
      padding-top:10px;
      z-index: -1;
      margin-top:50px;
-     padding-right:20px;
+     
      
 }
 
