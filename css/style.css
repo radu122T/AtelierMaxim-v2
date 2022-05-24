@@ -47,7 +47,7 @@ nav {
 
 header {
      grid-area: header;
-     height:88vh;
+     height:90vh;
 }
 
 .inter {
@@ -195,6 +195,7 @@ img {
 header .firstSection {
      width:62%;
      max-width:500px;
+     min-width:250px;
      position:absolute;
      left:37%;
      top:15vh;
@@ -210,10 +211,10 @@ header .firstSection {
 header .secondSection {
      position:absolute;
      left:10%;
-     top:45%;
+     top:45vh;
      bottom:auto;
      right:auto;
-     font-size: calc(26px + 6 * ((100vw - 320px) / 300))
+     font-size: calc(26px + 6 * ((100vw - 320px) / 250))
 }
 
 header button {
@@ -252,13 +253,13 @@ header .lastSection i {
 /*******************************************/
 
 .inter {
-     width:25%;
      white-space: nowrap;
      text-transform: uppercase;
      font-weight: 700;
      margin-bottom: 10px;
      padding-top:20px;
-     font-size: calc(10px + 6 * ((100vw - 320px) / 500))
+     font-size: calc(12px + 6 * ((100vw - 320px) / 600));
+     text-align: center;
 }
 
 .inter h2 {
@@ -268,9 +269,6 @@ header .lastSection i {
 }
 
 
-.CMV {
-     grid-area:CMV;
-}
 .inter h2:hover {
      cursor: pointer;
 }
@@ -333,8 +331,8 @@ header .lastSection i {
 }
 
 .thirdSection > div > div {
-     background:black;
-     padding:1px;
+     background:rgba(0, 0, 0, 0.425);
+     padding:5px;
      height: fit-content;
      font-size:0.7rem;
      text-align:center;
@@ -454,3 +452,52 @@ footer h4 {
 /******************************************
 /* FOOTER
 /*******************************************/
+
+
+@media only screen and (min-width: 600px) and (max-width: 915px) {
+     header {
+          height:90vh
+     }
+     header .firstSection {
+          top:12vh;
+     }
+     header .secondSection {
+          left:15%;
+          top:48vh;
+     }
+
+     .thirdSection {
+          display:grid;
+          grid-template-columns: repeat(3, 1fr);
+          column-gap:20px;
+          row-gap: 20px;
+          padding-bottom:20px;
+     }
+
+
+} 
+
+@media only screen and (min-width: 915px) {
+     header {
+          height:100vh
+     }
+     header .firstSection {
+          top:10vh;
+          left:38%;
+     }
+     header .secondSection {
+          left:15%;
+          top:45vh;
+     }
+
+     .thirdSection {
+          display:grid;
+          grid-template-columns: repeat(4, 1fr);
+          column-gap:20px;
+          row-gap: 20px;
+          padding-bottom:20px;
+     }
+     .rightSide span {
+          display:contents;
+     }
+} 
