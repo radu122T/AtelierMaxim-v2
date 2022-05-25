@@ -380,7 +380,7 @@ header .lastSection i {
      cursor:pointer;
      width:11px;
 	height:13px;
-	background:lightgrey;
+	background-color:lightgrey;
      font-size:0.6rem;
 	border-radius:4px;
      vertical-align: middle;
@@ -393,6 +393,9 @@ header .lastSection i {
      border-radius: 0;
 }
 
+.minus:hover, .plus:hover {
+     background-color:rgb(190, 190, 190);
+}
 .quantity {
      display:flex;
      justify-content: center;
