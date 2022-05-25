@@ -325,6 +325,7 @@ header .lastSection i {
 .thirdSection > div > div {
      background:rgba(0, 0, 0, 0.425);
      padding:5px;
+     padding-top:10px;
      height: fit-content;
      font-size:0.7rem;
      text-align:center;
@@ -338,7 +339,6 @@ header .lastSection i {
 .thirdSection div input {
      width:18px;
      height:auto;
-     font-size:0.7rem;
      margin-left:2px;
      vertical-align: middle;
      display: inline-block;
@@ -400,14 +400,19 @@ header .lastSection i {
 
 .quantityButtons {
      padding-left:5px;
+     margin-top:-1px;
 }
 
 .minus {
      margin-right:-7px;
+     border-top-left-radius: 3px;
+     border-bottom-left-radius:3px;
 }
 
 .plus {
      margin-left:-4px;
+     border-top-right-radius: 3px;
+     border-bottom-right-radius:3px;
 }
 .quantity input[value] {
      font-size:0.5rem;
@@ -513,7 +518,36 @@ footer h4 {
           padding-bottom:20px;
      }
 
+     .thirdSection p, .thirdSection > div > div {
+          font-size:0.75rem;
+     }
+     
 
+     .thirdSection div input {
+          width:20px;
+          height:15px;
+     }
+     
+     .productButtons button {
+          height:28px;
+          font-size:0.6rem;
+          border-radius: 8px;
+          
+          
+     }
+
+     .minus, .plus {
+          width:11px;
+          height:15px;
+          font-size:0.7rem;
+     }
+     
+     .plus {
+          padding-top:1px;
+     }
+     .quantity input[value] {
+          font-size:0.6rem;
+     }
 } 
 
 @media only screen and (min-width: 915px) {
@@ -565,6 +599,35 @@ footer h4 {
           column-gap:20px;
           row-gap: 20px;
           padding-bottom:20px;
+     }
+
+
+     .thirdSection p, .thirdSection > div > div {
+          font-size:0.9em;
+     }
+     
+
+     .thirdSection div input {
+          width:25px;
+          height:18px;
+     }
+     
+     .productButtons button {
+          height:34px;
+          font-size:0.8rem;
+          border-radius: 8px;
+}
+     .minus, .plus {
+          width:15px;
+          height:18px;
+          font-size:0.8rem;
+     }
+     
+     .plus {
+          padding-top:1px;
+     }
+     .quantity input[value] {
+          font-size:0.7rem;
      }
 
      .project {
