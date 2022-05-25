@@ -378,15 +378,41 @@ header .lastSection i {
 .minus, .plus {
      display: inline-block;
      cursor:pointer;
-     width:15px;
-	height:auto;
-	background:#f2f2f2;
+     width:11px;
+	height:13px;
+	background:lightgrey;
      font-size:0.6rem;
 	border-radius:4px;
      vertical-align: middle;
      text-align: center;
      color:black;
      font-weight: 600;
+     padding:0;
+     margin:0;
+     border: 0;
+     border-radius: 0;
+}
+
+.quantity {
+     display:flex;
+     justify-content: center;
+}
+
+.quantityButtons {
+     padding-left:5px;
+}
+
+.minus {
+     margin-right:-7px;
+}
+
+.plus {
+     margin-left:-4px;
+}
+.quantity input[value] {
+     font-size:0.5rem;
+     text-align: center;
+     border-radius: 0;
 }
 /******************************************
 /* MAIN
