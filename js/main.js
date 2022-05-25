@@ -9,10 +9,12 @@ buttonsSecond.forEach(button => {
             Array.prototype.forEach.call(thirdSection.children, child => {
                 if (child.classList.contains('noutatiProduse')){
                     child.classList.remove('noDisplay') 
-                    child.classList.add('display')}
+                    child.classList.add('display')
+                }
                 else {
                     child.classList.add('noDisplay')
                     child.classList.remove('display')}
+                    
         })
     }
         else {
@@ -27,6 +29,8 @@ buttonsSecond.forEach(button => {
 
     })
 })
+
+
 
 // + - items on products
 
