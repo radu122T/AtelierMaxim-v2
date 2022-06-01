@@ -31,6 +31,20 @@ buttonsSecond.forEach(button => {
 })
 
 
-
 // + - items on products
 
+const quantButton = document.querySelectorAll(".quantityButton")
+console.log(quantButton)
+quantButton.forEach(button => button.addEventListener("click", iter)) 
+function iter(evt) {
+    let oldValue = this.nextElementSibling
+    if (!oldValue) 
+        oldValue = this.previousElementSibling
+
+    if(evt.target.classList.contains('plus'))
+        oldValue.value++
+    else if (oldValue.value>0) 
+        oldValue.value--
+    else
+        oldValue.value = 0
+}

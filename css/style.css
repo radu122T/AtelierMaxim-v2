@@ -105,7 +105,12 @@ ul {
 a:visited {
      color:inherit;
 }
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
 /******************************************
 /* NAVBAR
 /*******************************************/
@@ -219,7 +224,7 @@ header button {
      border-radius: 5px;
      text-transform: uppercase;
      font-weight: 500;
-     font-size: calc(14px + 6 * ((100vw - 320px) / 900))
+     font-size: calc(14px + 6 * ((100vw - 320px) / 900));
 }
 
 header .lastSection {
@@ -325,7 +330,6 @@ header .lastSection i {
 .thirdSection > div > div {
      background:rgba(0, 0, 0, 0.425);
      padding:10px 8px;
-
      height: fit-content;
      font-size:0.7rem;
      text-align:center;
@@ -500,8 +504,10 @@ footer h4 {
 /*******************************************/
 
 
-@media only screen and (min-width: 600px) and (max-width: 915px) {
-     
+@media only screen and (min-width: 600px) and (max-width: 950px) {
+     .logo img{
+          width:55px;
+     }
      header {
           height:90vh
      }
@@ -553,7 +559,10 @@ footer h4 {
      }
 } 
 
-@media only screen and (min-width: 915px) {
+@media only screen and (min-width: 950px) and (max-width: 1100px) {
+     nav {
+          font-size:1.2rem;
+     }
      .menu {
           display:none;
      }
@@ -565,14 +574,14 @@ footer h4 {
           padding-left:10px;
           padding-top:5px;
      }
-
      .rightSide span {
           display:contents;
-          font-size:1rem;
      }
-
+     .rightSide{
+          font-size: 1.2rem;;
+     }
      .logo img{
-          width:50px;
+          width:60px;
      }
      nav .container ul {
           margin-bottom:0.5vh;
@@ -606,7 +615,7 @@ footer h4 {
 
 
      .thirdSection p, .thirdSection > div > div {
-          font-size:0.9em;
+          font-size:1rem;
      }
      
 
@@ -645,8 +654,107 @@ footer h4 {
 
 
 @media only screen and (min-width: 1100px) {
+     nav {
+          font-size:1.25rem;
+     }
+     .menu {
+          display:none;
+     }
+     .leftSide{
+          display:contents;
+     }
+     .leftSide a{
+          display:inline-block;
+          padding-left:10px;
+          padding-top:5px;
+     }
+     .rightSide span {
+          display:contents;
+     }
+     .rightSide{
+          font-size: 1.25rem;;
+     }
+     .logo img{
+          width:60px;
+     }
+     nav .container ul {
+          margin-bottom:0.5vh;
+     }
+     header {
+          height:100vh
+     }
+     header .firstSection {
+          top:10vh;
+          left:38%;
+     }
+     header .secondSection {
+          left:15%;
+          top:45vh;
+     }
+     header .lastSection {
+          right:100px;
+          font-size:1.2rem;
+          
+     }
+     .inter {
+          padding-bottom:15px;
+     }
+     .thirdSection {
+          display:grid;
+          grid-template-columns: repeat(4, 1fr);
+          column-gap:20px;
+          row-gap: 20px;
+          padding-bottom:20px;
+     }
+
+
+     .thirdSection p, .thirdSection > div > div {
+          font-size:1.1rem;
+     }
+     
+
+     .thirdSection div input {
+          width:25px;
+          height:20px;
+     }
+     
+     .productButtons button {
+          height:34px;
+          font-size:0.9rem;
+          border-radius: 8px;
+          font-weight:500;
+          padding:0 15px;
+          
+     }
+     .minus, .plus {
+          width:15px;
+          height:20px;
+          font-size:0.9rem;
+     }
+     
+     .plus {
+          padding-top:1px;
+          margin-left:-5px;
+     }
+     .quantity input[value] {
+          font-size:0.75rem;
+     }
+
+     .project {
+          margin:auto;
+          width:50%;
+          color:white;
+          padding:50px 0;
+          font-size:1.2rem;
+     }
+
 
      .productButtons button {
           font-weight: 600;
+     }
+     header button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
      }
 }
