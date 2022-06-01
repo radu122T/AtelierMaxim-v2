@@ -42,9 +42,14 @@ function iter(evt) {
         oldValue = this.previousElementSibling
 
     if(evt.target.classList.contains('plus'))
-        oldValue.value++
-    else if (oldValue.value>0) 
+        if (oldValue.value>98)
+            oldValue.value===98
+        else{
+            oldValue.value++
+        }
+        
+    else if (oldValue.value>1) 
         oldValue.value--
     else
-        oldValue.value = 0
+        oldValue.value = 1
 }
