@@ -25,7 +25,7 @@ let generateCartItems = () => {
           <div class="title-price-x">
               <h4 class="title-price">
                 <p>${search.desc}</p>
-                <p class="cart-item-price">$ ${search.price}</p>
+                <p class="cart-item-price"> ${search.price} lei</p>
               </h4>
               
           </div>
@@ -36,7 +36,7 @@ let generateCartItems = () => {
               <i onclick="increment(${id})" class="fa-solid fa-plus"></i>
           </div>
 
-          <h3>$ ${item * search.price}</h3>
+          <h3> ${item * search.price} lei</h3>
         </div>
       </div>
       `;
@@ -45,9 +45,9 @@ let generateCartItems = () => {
   } else {
     ShoppingCart.innerHTML = ``;
     label.innerHTML = `
-    <h2>Cart is Empty</h2>
+    <h2>Nu aveti nimic in cos</h2>
     <a href="index.html">
-      <button class="HomeBtn">Back to home</button>
+      <button class="HomeBtn">Inapoi la prima pagina</button>
     </a>
     `;
   }
@@ -122,9 +122,9 @@ let TotalAmount = () => {
       .reduce((x, y) => x + y, 0);
     // console.log(amount);
     label.innerHTML = `
-    <h2>Total Bill : $ ${amount}</h2>
+    <h2>Pret total : ${amount} lei</h2>
     <button class="checkout">Checkout</button>
-    <button onclick="clearCart()" class="removeAll">Clear Cart</button>
+    <button onclick="clearCart()" class="removeAll">Sterge tot din cos</button>
     `;
   } else return;
 };
