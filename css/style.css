@@ -178,6 +178,15 @@ nav .container ul {
 .back {
      display:none;
 }
+
+.cartAmount {
+     margin-left: -5px;
+}
+
+.cart{
+     display:flex;
+     padding-right: 10px;
+}
 /******************************************
 /* NAVBAR
 /*******************************************/

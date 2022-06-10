@@ -198,7 +198,11 @@ main {
 }
 
 .cart-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    padding-top:10px;
     background-color:rgba(0, 0, 0, 0.425);
+    border:1px solid white;
 }
 
 main img{
@@ -210,13 +214,67 @@ main img{
 }
 
 .fa-xmark {
-    position:absolute;
-    right:35px;
-    top:160px;
+    position:relative;
+    left:280px;
+    bottom:185px;
 }
 .details .buttons {
     display:flex;
     justify-content: center;
+}
+
+.fa-plus {
+    font-size:0.7rem;
+    align-self:center;
+    padding-left: 3px;
+}
+.fa-minus {
+    padding-left: 5px;
+    padding-right: 3px;
+    font-size:0.7rem;
+    align-self:center;
+    
+}
+
+.shipping {
+    margin:0 5%;
+    border:1px solid white;
+    padding:5%;
+}
+
+.personalInfo h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.personalInfo span {
+    display:block;
+    text-transform: uppercase;
+    margin-top:10px;
+    margin-bottom: 5px;
+}
+.personalInfo input {
+    all:unset;
+    width: 300px;
+    height: 25px;
+    background-color: rgb(240, 243, 247);
+}
+
+.payment {
+    display:none;
+    margin:5% 5%;
+    border:1px solid white;
+    padding:5%;
+}
+
+.facturare {
+    margin-top:10px;
+}
+
+.text-center {
+    margin:5% 5%;
+    border:1px solid white;
+    padding:5%;
 }
 /******************************************
 /* FOOTER
