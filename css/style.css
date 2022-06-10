@@ -152,10 +152,14 @@ nav .container ul {
      display:none;
 }
 .rightSide {
-     justify-self: end;
      grid-area: cont;
+     display:flex;
      align-self: center;
      font-size:0.9rem;
+     justify-content: end;
+}
+.cart{
+     display:flex;
 }
 
 .rightSide a{
@@ -302,16 +306,23 @@ header .lastSection i {
 /* MAIN
 /*******************************************/
 
-
-.thirdSection {
+.shop {
      display:grid;
      grid-template-columns: repeat(2, 1fr);
      column-gap:20px;
      row-gap: 20px;
      padding-bottom:20px;
      border-bottom:rgba(255, 255, 255, 0.555) 1px solid;
+     text-align: center;
 }
-.thirdSection img {
+.item {
+     background:rgba(0, 0, 0, 0.425);
+     padding:10px 8px;
+     height: fit-content;
+     font-size:0.7rem;
+     text-align:center;
+}
+.shop img {
      display:block;
      width:100%;
      height:auto;
@@ -319,46 +330,19 @@ header .lastSection i {
      object-position:center;
 }
 
-.noDisplay {
-     display: none;
-}
-
-.display {
-     display:contents;
-}
-
-.thirdSection p{
+.shop p{
      display: inline-block;
      padding:10px 0 2px 0;
      text-align: center;
      font-weight:500;
-     font-size:0.7rem;
 }
 
-.thirdSection > div > div {
-     background:rgba(0, 0, 0, 0.425);
-     padding:10px 8px;
-     height: fit-content;
-     font-size:0.7rem;
-     text-align:center;
+.priceQuantity .buttons {
+     display:flex;
+     justify-content: center;
 }
 
-.thirdSection div span {
-     display:inline-block;
-
-}
-
-.thirdSection div input {
-     width:18px;
-     height:auto;
-     margin-left:2px;
-     vertical-align: middle;
-     display: inline-block;
-     border:1px solid #ddd;
-	border-radius:4px;
-}
-
-.thirdSection .productButtons {
+.productButtons {
      display:flex;
      justify-content: space-around;
      padding-top:10px;
@@ -385,55 +369,58 @@ header .lastSection i {
 }
 
 .productButtons button:last-child:hover {
-     background-color:rgb(180, 86, 43) ; ;
-}
-.minus, .plus {
-     display: inline-block;
-     cursor:pointer;
-     width:11px;
-	height:13px;
-	background-color:lightgrey;
-     font-size:0.6rem;
-	border-radius:4px;
-     vertical-align: middle;
-     text-align: center;
-     color:black;
-     font-weight: 600;
-     padding:0;
-     margin:0;
-     border: 0;
-     border-radius: 0;
+     background-color:rgb(180, 86, 43) ; 
 }
 
-.minus:hover, .plus:hover {
-     background-color:rgb(190, 190, 190);
+.fa-minus, .fa-plus {
+     display: flex;
+     cursor:pointer;
+     width:13px;
+	height:12px;
+     padding-top:2px;
+	background-color:lightgrey;
+     font-size:0.5rem;
+	border-radius:4px;
+     color:black;
+     font-weight: 600;
 }
 .quantity {
      display:flex;
+     width:15px;
+     height: 12px;
+     background-color: white;
+     color:black;
      justify-content: center;
+     align-items: center;
 }
-
 .quantityButtons {
-     padding-left:5px;
-     margin-top:-1px;
+     display:flex;
+     align-items: center;
+     margin-left:2px;
+}
+.fa-minus:hover, .fa-plus:hover {
+     background-color:rgb(190, 190, 190);
 }
 
-.minus {
-     margin-right:-7px;
-     border-top-left-radius: 3px;
-     border-bottom-left-radius:3px;
+.fa-plus {
+     border-top-left-radius:0;
+     border-bottom-left-radius:0;
 }
 
-.plus {
-     margin-left:-4px;
-     border-top-right-radius: 3px;
-     border-bottom-right-radius:3px;
+.fa-minus {
+     border-top-right-radius:0;
+     border-bottom-right-radius:0;
 }
-.quantity input[value] {
-     font-size:0.5rem;
-     text-align: center;
-     border-radius: 0;
+
+.noDisplay {
+     display: none;
 }
+
+.display {
+     display:contents;
+}
+
+
 /******************************************
 /* MAIN
 /*******************************************/
@@ -450,6 +437,38 @@ header .lastSection i {
 
 /******************************************
 /* PROJECT
+/*******************************************/
+/******************************************
+/* CART
+/*******************************************/
+.cart-item {
+     border: 2px solid #212529;
+     border-radius: 5px;
+     display: flex;
+   }
+   
+   .title-price-x {
+     width: 195px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     /* border: 2px solid red; */
+   }
+   
+   .title-price {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+   }
+   
+   .cart-item-price {
+     background-color: #212529;
+     color: white;
+     border-radius: 4px;
+     padding: 3px 6px;
+   }
+/******************************************
+/* CART
 /*******************************************/
 
 /******************************************
@@ -535,43 +554,34 @@ footer h4 {
           top:48vh;
      }
 
-     .thirdSection {
+     .shop {
           display:grid;
           grid-template-columns: repeat(3, 1fr);
           column-gap:20px;
           row-gap: 20px;
           padding-bottom:20px;
      }
-
-     .thirdSection p, .thirdSection > div > div {
-          font-size:0.75rem;
+     .details {
+          font-size:0.8rem
      }
-     
-
-     .thirdSection div input {
-          width:20px;
-          height:15px;
-     }
-     
      .productButtons button {
           height:28px;
           font-size:0.6rem;
           border-radius: 8px;
-          
-          
      }
 
-     .minus, .plus {
+     .fa-minus, .fa-plus {
           width:11px;
           height:15px;
           font-size:0.7rem;
      }
      
-     .plus {
+     .fa-plus {
           padding-top:1px;
      }
-     .quantity input[value] {
+     .quantity {
           font-size:0.6rem;
+          height:15px;
      }
 } 
 
@@ -628,7 +638,7 @@ footer h4 {
      .inter {
           padding-bottom:15px;
      }
-     .thirdSection {
+     .shop {
           display:grid;
           grid-template-columns: repeat(4, 1fr);
           column-gap:20px;
@@ -636,36 +646,28 @@ footer h4 {
           padding-bottom:20px;
      }
 
-
-     .thirdSection p, .thirdSection > div > div {
-          font-size:1rem;
-     }
-     
-
-     .thirdSection div input {
-          width:25px;
-          height:18px;
-     }
-     
      .productButtons button {
           height:34px;
           font-size:0.8rem;
           border-radius: 8px;
           font-weight:500;
      }
-     .minus, .plus {
+     .fa-minus, .fa-plus {
           width:15px;
-          height:18px;
-          font-size:0.8rem;
-     }
-     
-     .plus {
-          padding-top:1px;
-     }
-     .quantity input[value] {
+          height:15px;
           font-size:0.7rem;
      }
-
+     
+     .fa-plus {
+          padding-top:1px;
+     }
+     .quantity {
+          font-size:0.7rem;
+          height: 15px;
+     }
+     .details {
+          font-size:1rem
+     }
      .project {
           margin:auto;
           width:50%;
@@ -725,10 +727,15 @@ footer h4 {
           font-size:1.2rem;
           
      }
+     header button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+     }
      .inter {
           padding-bottom:15px;
      }
-     .thirdSection {
+     .shop {
           display:grid;
           grid-template-columns: repeat(4, 1fr);
           column-gap:20px;
@@ -736,17 +743,6 @@ footer h4 {
           padding-bottom:20px;
      }
 
-
-     .thirdSection p, .thirdSection > div > div {
-          font-size:1.1rem;
-     }
-     
-
-     .thirdSection div input {
-          width:25px;
-          height:20px;
-     }
-     
      .productButtons button {
           height:34px;
           font-size:0.9rem;
@@ -755,20 +751,21 @@ footer h4 {
           padding:0 15px;
           
      }
-     .minus, .plus {
+     .fa-minus, .fa-plus {
           width:15px;
-          height:20px;
-          font-size:0.9rem;
+          height:15px;
+          font-size:0.7rem;
      }
      
-     .plus {
-          padding-top:1px;
-          margin-left:-5px;
-     }
-     .quantity input[value] {
+     .quantity {
           font-size:0.75rem;
+          height: 15px;
+          width: 20px;
+          justify-content: center;
      }
-
+     .details {
+          font-size:1.1rem
+     }
      .project {
           margin:auto;
           width:50%;
@@ -777,15 +774,10 @@ footer h4 {
           font-size:1.2rem;
      }
 
-
      .productButtons button {
           font-weight: 600;
      }
-     header button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-     }
+
 }
 
 /******************************************
