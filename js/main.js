@@ -27,9 +27,8 @@ let generateShop = () => {
                     </div>
                     <h2> ${price} Lei</h2>
                 </div>
-
                 <div class="productButtons">
-			    		    <button>Adauga in cos</button>
+			    		    <button onclick="increment(${id})" class='addToCart'>Adauga in cos</button>
 			    		    <button><a href="/produs.html">Personalizeaza</a></button>
 			          </div>
             </div>
@@ -42,11 +41,14 @@ let generateShop = () => {
 
 generateShop()
 
+
+
 let increment = (id) => {
     let selectedItem = id
+    let product=document.getElementById(`product-id-${selectedItem.id}`)
+    let addToCart= Array.from(product.getElementsByClassName('addToCart'))[0]
     let search = basket.find((x) => x.id === selectedItem.id)
-  
-    if (search === undefined) {
+    if (search === undefined ) {
       basket.push({
         id: selectedItem.id,
         item: 1,
@@ -54,10 +56,11 @@ let increment = (id) => {
     } else {
       search.item += 1
     }
-  
-    // console.log(basket)
+    
     update(selectedItem.id)
+  
     localStorage.setItem("data", JSON.stringify(basket))
+    
 }
 
 
@@ -88,6 +91,8 @@ let increment = (id) => {
   }
   
   calculation()
+
+
 
 
 //sortare

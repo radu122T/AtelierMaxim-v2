@@ -18,15 +18,16 @@ let generateCartItems = () => {
         let search = shopItemsData.find((y) => y.id === id) || [];
         return `
       <div class="cart-item">
-        <img width="100" src=${search.img} alt="" />
+        <i onclick="removeItem(${id})" class="fa-solid fa-xmark"></i>
+        <img src=${search.img} alt="" />
         <div class="details">
 
           <div class="title-price-x">
               <h4 class="title-price">
-                <p>${search.name}</p>
+                <p>${search.desc}</p>
                 <p class="cart-item-price">$ ${search.price}</p>
               </h4>
-              <i onclick="removeItem(${id})" class="fa-solid fa-xmark"></i>
+              
           </div>
 
           <div class="buttons">

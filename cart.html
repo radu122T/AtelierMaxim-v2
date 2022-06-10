@@ -11,7 +11,7 @@
 
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/cart.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
@@ -51,6 +51,9 @@
 		<nav>
 			<div class="container">
 				<ul>
+					<li class="back">
+						<a href="/index.html"><i class="fa-solid fa-arrow-left-long"></i> Inapoi</a>
+					</li>
 					<li class="menu">
 						<a href=""><i class="fa-solid fa-bars"></i></a>
 					</li>
@@ -64,7 +67,6 @@
 					</li>
 
 					<li class="rightSide">
-						<a href="/logInPage.html"><i class="fa-solid fa-user"></i> <span>Cont / Inregistrare</span></a>
 						<div class="cart">
 							<a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
 							<div id="cartAmount" class="cartAmount">0</div>
@@ -74,10 +76,15 @@
 				</ul> 
 			</div>
 		</nav>
-
+		<header>
+			<h1>Comanda dumneavoastra</h1>
+		</header>
+		<main>
+			<div class="shopping-cart" id="shopping-cart"></div>
+		</main>
 		<div id="label" class="text-center"></div>
 
-  		<div class="shopping-cart" id="shopping-cart"></div>
+  		
 
 		<footer>
 			<div class="footer">

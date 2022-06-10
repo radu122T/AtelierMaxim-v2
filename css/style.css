@@ -41,7 +41,6 @@ body {
        "project project project project"
        "footer footer footer footer";
      grid-gap: 0.2rem;
-     
      color:white;
      height: 100%;
      text-rendering: optimizeLegibility;
@@ -176,7 +175,9 @@ nav .container ul {
      padding-left:10px;
      font-size:1.2rem;
 }
-
+.back {
+     display:none;
+}
 /******************************************
 /* NAVBAR
 /*******************************************/
@@ -191,7 +192,6 @@ header {
      font-size:25px;
      font-weight:500;
      text-transform: uppercase;
-     
 }
 
 img {
@@ -315,7 +315,7 @@ header .lastSection i {
      border-bottom:rgba(255, 255, 255, 0.555) 1px solid;
      text-align: center;
 }
-.item {
+.item>div {
      background:rgba(0, 0, 0, 0.425);
      padding:10px 8px;
      height: fit-content;
@@ -338,7 +338,7 @@ header .lastSection i {
 }
 
 .priceQuantity .buttons {
-     display:flex;
+     display:none;
      justify-content: center;
 }
 
@@ -441,32 +441,9 @@ header .lastSection i {
 /******************************************
 /* CART
 /*******************************************/
-.cart-item {
-     border: 2px solid #212529;
-     border-radius: 5px;
-     display: flex;
-   }
-   
-   .title-price-x {
-     width: 195px;
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     /* border: 2px solid red; */
-   }
-   
-   .title-price {
-     display: flex;
-     align-items: center;
-     gap: 10px;
-   }
-   
-   .cart-item-price {
-     background-color: #212529;
-     color: white;
-     border-radius: 4px;
-     padding: 3px 6px;
-   }
+
+
+
 /******************************************
 /* CART
 /*******************************************/
