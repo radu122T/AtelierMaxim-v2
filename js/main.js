@@ -93,10 +93,10 @@ let calculation = () => {
 calculation()
 
 let removeItem = (id) => {
+    window.location.reload()
     let selectedItem = id
   // console.log(selectedItem.id)
     basket = basket.filter((x) => x.id !== selectedItem.id)
-    generateDrawer()
     TotalAmount()
     sessionStorage.setItem("data", JSON.stringify(basket))
     if (basket.length===0)
@@ -111,14 +111,14 @@ let generateDrawer = () => {
         let { id, item } = x
         let search = shopItemsData.find((y) => y.id === id) || []
         return `
-            <h2>Cosul dumneavoastra</h2>
-            <img src=${search.img} alt="" />
-            
-            <p>${search.desc}</p>
-            <i onclick="removeItem(${id})" class="fa-solid fa-xmark" id="secondx"></i>
-            <div>${search.price}</div>
-            <div>${item}</div>
-            <div></div>
+          <div class='container'>
+            <div class='cartDrawerDetails'>
+              <p><img src=${search.img} alt="" />${search.desc}</p>
+              <div>${search.price}</div>
+              <div>${item}</div>
+            </div>
+            <div class='erase' onclick="removeItem(${id})">Sterge</div>
+          </div>
                 `   
 }).join(""))
 } 
@@ -146,12 +146,14 @@ let TotalAmount = () => {
                   <p>${search.desc}<span>x ${item},</span><span>${search.price*item} Lei</span></p>
                   `
           }).join("")
-  totalAmount.innerHTML =  `<h4>Pret curier Rapid: 20 Lei
-  <h2>Pret total : ${amount + 20} Lei</h2>
-  <div class=containerC>
-      <button class="checkout">Plata cu cardul</button>
-  </div>`
-
+  totalAmount.innerHTML =  `
+    <div class="priceDrawer">
+        <h4>Pret curier: 20 Lei</h4>
+        <h2>Pret total : ${amount + 20} Lei</h2>
+    </div>
+    <div class=containerC>
+        <button class="checkout">Vezi cosul</button>
+    </div>`
   } else return
 }
 
