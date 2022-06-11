@@ -122,7 +122,7 @@ let TotalAmount = () => {
         return item * search.price 
     })
     .reduce((x, y) => x + y, 0)
-    console.log(basket[0].id)
+    
     // console.log(amount)
     label.innerHTML =label.innerHTML + basket
             .map((x) => {

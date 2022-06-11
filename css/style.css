@@ -436,6 +436,8 @@ header .lastSection i {
      top:0;
      right:0;
      background-color: white;
+     color:black;
+     overflow: scroll;
 }
 /******************************************
 /* MAIN

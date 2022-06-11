@@ -60,11 +60,11 @@ let increment = (id) => {
     update(selectedItem.id)
   
     sessionStorage.setItem("data", JSON.stringify(basket))
-    
+    window.location.reload()
 }
 
 
-  let decrement = (id) => {
+let decrement = (id) => {
     let selectedItem = id
     let search = basket.find((x) => x.id === selectedItem.id)
   
@@ -85,29 +85,78 @@ let increment = (id) => {
     calculation()
   }
   
-  let calculation = () => {
+let calculation = () => {
     let cartIcon = document.getElementById("cartAmount")
     cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0)
   }
   
-  calculation()
+calculation()
 
-  let cartDrawer = document.getElementById("cartDrawer")
+let removeItem = (id) => {
+    let selectedItem = id
+  // console.log(selectedItem.id)
+    basket = basket.filter((x) => x.id !== selectedItem.id)
+    generateDrawer()
+    TotalAmount()
+    sessionStorage.setItem("data", JSON.stringify(basket))
+    if (basket.length===0)
+    window.location.reload()
+  }
+
+let cartDrawer = document.getElementById("cartDrawer")
   console.log(cartDrawer)
-  let generateDrawer = () => {
-    return (cartDrawer.innerHTML = basket
+let generateDrawer = () => {
+    return (cartDrawer.innerHTML =cartDrawer.innerHTML+ basket
       .map((x) => {
         let { id, item } = x
         let search = shopItemsData.find((y) => y.id === id) || []
         return `
+            <h2>Cosul dumneavoastra</h2>
+            <img src=${search.img} alt="" />
             
+            <p>${search.desc}</p>
+            <i onclick="removeItem(${id})" class="fa-solid fa-xmark" id="secondx"></i>
+            <div>${search.price}</div>
+            <div>${item}</div>
+            <div></div>
                 `   
 }).join(""))
 } 
-
-
 generateDrawer()
-//sortare
+let totalAmount = document.getElementById("totalAmount")
+console.log(totalAmount)
+let TotalAmount = () => {
+  if (basket.length !== 0) {
+      let amount = basket
+          .map((x) => {
+              let { item, id } = x
+              let search = shopItemsData.find((y) => y.id === id) || []
+              
+              
+      return item * search.price 
+  })
+  .reduce((x, y) => x + y, 0)
+  
+  // console.log(amount)
+  totalAmount.innerHTML = basket
+          .map((x) => {
+              let { item, id } = x
+              let search = shopItemsData.find((y) => y.id === id) || []
+              return `
+                  <p>${search.desc}<span>x ${item},</span><span>${search.price*item} Lei</span></p>
+                  `
+          }).join("")
+  totalAmount.innerHTML =  `<h4>Pret curier Rapid: 20 Lei
+  <h2>Pret total : ${amount + 20} Lei</h2>
+  <div class=containerC>
+      <button class="checkout">Plata cu cardul</button>
+  </div>`
+
+  } else return
+}
+
+TotalAmount()
+  //sortare
 
 const shp =  document.getElementsByClassName('shop')[0]
 const buttonsSecond = document.querySelectorAll('[data-second]')
