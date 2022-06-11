@@ -259,9 +259,11 @@ main img{
 }
 .personalInfo input {
     all:unset;
-    width: 300px;
+    width: 280px;
     height: 25px;
     background-color: rgb(240, 243, 247);
+    color:black;
+    padding-left:10px;
 }
 
 .payment {
@@ -283,6 +285,43 @@ main img{
     margin:5% 5%;
     border:1px solid white;
     padding:5%;
+
+}
+
+.text-center h3 {
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.text-center p span {
+    text-align: right;
+}
+
+.text-center h4 {
+    padding-top:25px;
+}
+
+.text-center p span {
+    padding-left: 10px;
+}
+
+.containerC {
+    display:flex;
+    justify-content: center;
+}
+
+.checkout {
+    background-color:#ee693d;
+    outline:0;
+    border:0;
+    width:160px;
+    color:rgba(255, 255, 255, 0.863);
+    height:30px;
+    border-radius:5px;
+    font-size:1.1rem;
+    margin-top:20px;
+    font-weight: 600;
 }
 /******************************************
 /* FOOTER
