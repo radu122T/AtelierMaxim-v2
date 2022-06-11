@@ -242,6 +242,10 @@ main img{
     padding:5%;
 }
 
+.shipping h2:first-child{
+    text-align: center;
+    text-transform: uppercase;
+}
 .personalInfo h2 {
     text-align: center;
     text-transform: uppercase;
@@ -269,8 +273,12 @@ main img{
 
 .facturare {
     margin-top:10px;
+    
 }
-
+.payment h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
 .text-center {
     margin:5% 5%;
     border:1px solid white;

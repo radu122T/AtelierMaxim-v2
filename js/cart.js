@@ -50,77 +50,79 @@ let generateCartItems = () => {
 generateCartItems()
 
 let increment = (id) => {
-  let selectedItem = id
-  let search = basket.find((x) => x.id === selectedItem.id)
+    let selectedItem = id
+    let search = basket.find((x) => x.id === selectedItem.id)
 
-  if (search === undefined) {
+    if (search === undefined) {
     basket.push({
-      id: selectedItem.id,
-      item: 1,
+        id: selectedItem.id,
+        item: 1,
     })
-  } else {
+} else {
     search.item += 1
-  }
+}
 
-  generateCartItems()
-  update(selectedItem.id)
-  localStorage.setItem("data", JSON.stringify(basket))
+    generateCartItems()
+    update(selectedItem.id)
+    localStorage.setItem("data", JSON.stringify(basket))
 }
 let decrement = (id) => {
-  let selectedItem = id
-  let search = basket.find((x) => x.id === selectedItem.id)
+    let selectedItem = id
+    let search = basket.find((x) => x.id === selectedItem.id)
 
-  if (search === undefined) return
-  else if (search.item === 0) return
-  else {
+    if (search === undefined) return
+    else if (search.item === 0) return
+    else {
     search.item -= 1
-  }
-  update(selectedItem.id)
-  basket = basket.filter((x) => x.item !== 0)
-  generateCartItems()
-  localStorage.setItem("data", JSON.stringify(basket))
+}
+    update(selectedItem.id)
+    basket = basket.filter((x) => x.item !== 0)
+    generateCartItems()
+    localStorage.setItem("data", JSON.stringify(basket))
 }
 
 let update = (id) => {
-  let search = basket.find((x) => x.id === id)
+    let search = basket.find((x) => x.id === id)
   // console.log(search.item)
-  document.getElementById(id).innerHTML = search.item
-  calculation()
-  TotalAmount()
+    document.getElementById(id).innerHTML = search.item
+    calculation()
+    TotalAmount()
 }
 
 let removeItem = (id) => {
-  let selectedItem = id
+    let selectedItem = id
   // console.log(selectedItem.id)
-  basket = basket.filter((x) => x.id !== selectedItem.id)
-  generateCartItems()
-  TotalAmount()
-  localStorage.setItem("data", JSON.stringify(basket))
+    basket = basket.filter((x) => x.id !== selectedItem.id)
+    generateCartItems()
+    TotalAmount()
+    localStorage.setItem("data", JSON.stringify(basket))
+    if (basket.length===0)
+    window.location.reload()
 }
 
 let clearCart = () => {
-  basket = []
-  generateCartItems()
-  localStorage.setItem("data", JSON.stringify(basket))
+    basket = []
+    generateCartItems()
+    localStorage.setItem("data", JSON.stringify(basket))
 }
 
 let TotalAmount = () => {
-  if (basket.length !== 0) {
-    let amount = basket
-      .map((x) => {
-        let { item, id } = x
-        let search = shopItemsData.find((y) => y.id === id) || []
+    if (basket.length !== 0) {
+        let amount = basket
+            .map((x) => {
+                let { item, id } = x
+                let search = shopItemsData.find((y) => y.id === id) || []
 
         return item * search.price
-      })
-      .reduce((x, y) => x + y, 0)
+    })
+    .reduce((x, y) => x + y, 0)
     // console.log(amount)
     label.innerHTML = `
     <h2>Pret total : ${amount} lei</h2>
     <button class="checkout">Checkout</button>
     <button onclick="clearCart()" class="removeAll">Sterge tot din cos</button>
     `
-  } else return
+    } else return
 }
 
 TotalAmount()
@@ -134,4 +136,15 @@ cb.addEventListener('change', ()=> {
         document.querySelector('.payment').style.display = "none"
     }
 })
+
+let shippingReload = () => {
+    if (basket.length===0) {
+        document.querySelector('.shipping').style.display="none"
+    }
+    else {
+        document.querySelector('.shipping').style.display="block"
+    }
+}
+
+shippingReload()
 
