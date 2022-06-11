@@ -1,6 +1,6 @@
 let shop = document.getElementById("shop")
 
-let basket = JSON.parse(localStorage.getItem("data")) || []
+let basket = JSON.parse(sessionStorage.getItem("data")) || []
 
 let generateShop = () => {
   return (shop.innerHTML = shopItemsData
@@ -59,7 +59,7 @@ let increment = (id) => {
     
     update(selectedItem.id)
   
-    localStorage.setItem("data", JSON.stringify(basket))
+    sessionStorage.setItem("data", JSON.stringify(basket))
     
 }
 
@@ -76,7 +76,7 @@ let increment = (id) => {
     update(selectedItem.id)
     basket = basket.filter((x) => x.item !== 0)
     // console.log(basket)
-    localStorage.setItem("data", JSON.stringify(basket))
+    sessionStorage.setItem("data", JSON.stringify(basket))
   }
   let update = (id) => {
     let search = basket.find((x) => x.id === id)
@@ -92,9 +92,21 @@ let increment = (id) => {
   
   calculation()
 
+  let cartDrawer = document.getElementById("cartDrawer")
+  console.log(cartDrawer)
+  let generateDrawer = () => {
+    return (cartDrawer.innerHTML = basket
+      .map((x) => {
+        let { id, item } = x
+        let search = shopItemsData.find((y) => y.id === id) || []
+        return `
+            
+                `   
+}).join(""))
+} 
 
 
-
+generateDrawer()
 //sortare
 
 const shp =  document.getElementsByClassName('shop')[0]

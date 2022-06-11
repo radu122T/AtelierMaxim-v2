@@ -180,6 +180,9 @@ nav .container ul {
     margin-left: -5px;
 }
 
+#secondx {
+    display:none;
+}
 /******************************************
 /* NAVBAR
 /*******************************************/
@@ -187,8 +190,10 @@ nav .container ul {
 header {
     text-align:center;
     font-size:1.2rem;
-    margin-top: 20px;
+    padding:20px 0;
     margin-bottom: 30px;
+    background-color: white;
+    color:black;
 }
 
 main {
@@ -213,10 +218,22 @@ main img{
     margin-top:10px;
 }
 
+.cartImg {
+    display:grid;
+    grid-template-areas:". img img x";
+    
+}
+
+.cartImg img {
+    grid-area:img;
+    justify-self:center;
+}
+
 .fa-xmark {
-    position:relative;
-    left:280px;
-    bottom:185px;
+    grid-area:x;
+    justify-self:end;
+    padding-right: 20px;
+    
 }
 .details .buttons {
     display:flex;
@@ -245,10 +262,13 @@ main img{
 .shipping h2:first-child{
     text-align: center;
     text-transform: uppercase;
+    font-size:1.1rem;
+    font-weight:600;
 }
 .personalInfo h2 {
     text-align: center;
     text-transform: uppercase;
+    
 }
 
 .personalInfo span {
@@ -259,11 +279,12 @@ main img{
 }
 .personalInfo input {
     all:unset;
-    width: 280px;
+    width: 95%;
     height: 25px;
     background-color: rgb(240, 243, 247);
     color:black;
     padding-left:10px;
+    
 }
 
 .payment {
@@ -280,24 +301,31 @@ main img{
 .payment h2 {
     text-align: center;
     text-transform: uppercase;
+    font-size:1.1rem;
+    font-weight:600;
 }
 .text-center {
-    margin:5% 5%;
+    margin:0 5% 5% 5%;
     border:1px solid white;
     padding:5%;
-
+    
 }
 
 .text-center h3 {
     text-align: center;
     text-transform: uppercase;
     padding-bottom: 10px;
+    font-size:1.1rem;
+    font-weight:600;
 }
 
 .text-center p span {
     text-align: right;
 }
 
+.text-center >span {
+    display:inline;
+}
 .text-center h4 {
     padding-top:25px;
 }
@@ -387,8 +415,140 @@ footer h4 {
 /*******************************************/
 
 @media only screen and (min-width: 600px) and (max-width: 950px)
-{}
+{
+    .cart-item {
+        display:grid;
+        grid-template-areas: "img details xq"
+    }
+    .cartImg {
+        grid-area: img;
+    }
+    .details {
+        grid-area:details;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding-left:5px;
+    }
+
+    #firstx {
+        display:none;
+    }
+    #secondx {
+        display:block;
+        grid-area:xq;
+    }
+}
 @media only screen and (min-width: 950px) and (max-width: 1100px)
-{}
+{
+    .cart-item {
+        display:grid;
+        grid-template-areas: "img details xq"
+    }
+    .cartImg {
+        grid-area: img;
+    }
+    .details {
+        grid-area:details;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding-left:5px;
+    }
+
+    #firstx {
+        display:none;
+    }
+    #secondx {
+        display:block;
+        grid-area:xq;
+    }
+    .onTheSameRow {
+        display:grid;
+        grid-template-areas:
+        "city state cod"
+        "input1 input2 input3"
+        ;
+    }
+    .city {
+        grid-area:city
+    }
+    .state {
+        grid-area:state;
+    }
+    .cod {
+        grid-area:cod;
+    }
+    .input1 {
+        grid-area:input1;
+        width:30%
+    }
+    .input2 {
+        grid-area:input2;
+        width:30%
+    }
+    .input3 {
+        grid-area:input3;
+        width:5%
+    }
+    .personalInfo input {
+        width:90%;
+    }
+}
 @media only screen and (min-width: 1100px)
-{}
+{.cart-item {
+    display:grid;
+    grid-template-areas: "img details xq"
+}
+.cartImg {
+    grid-area: img;
+}
+.details {
+    grid-area:details;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-left:5px;
+}
+
+#firstx {
+    display:none;
+}
+#secondx {
+    display:block;
+    grid-area:xq;
+}
+.onTheSameRow {
+    display:grid;
+    grid-template-areas:
+    "city state cod"
+    "input1 input2 input3"
+    ;
+}
+.city {
+    grid-area:city
+}
+.state {
+    grid-area:state;
+}
+.cod {
+    grid-area:cod;
+}
+.input1 {
+    grid-area:input1;
+    width:30%
+}
+.input2 {
+    grid-area:input2;
+    width:30%
+}
+.input3 {
+    grid-area:input3;
+    width:5%
+}
+.personalInfo input {
+    width:90%;
+}}

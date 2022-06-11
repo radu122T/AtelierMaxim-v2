@@ -1,7 +1,7 @@
 let label = document.getElementById("label")
 let ShoppingCart = document.getElementById("shopping-cart")
 
-let basket = JSON.parse(localStorage.getItem("data")) || []
+let basket = JSON.parse(sessionStorage.getItem("data")) || []
 
 let calculation = () => {
     let cartIcon = document.getElementById("cartAmount")
@@ -18,8 +18,11 @@ let generateCartItems = () => {
                 let search = shopItemsData.find((y) => y.id === id) || []
                 return `
                     <div class="cart-item">
-                            <i onclick="removeItem(${id})" class="fa-solid fa-xmark"></i>
-                            <img src=${search.img} alt="" />
+                            <div class=cartImg>
+                                <img src=${search.img} alt="" />
+                                <i onclick="removeItem(${id})" class="fa-solid fa-xmark" id="firstx"></i>
+                            </div>
+                            
                         <div class="details">
                             <div class="title-price-x">
                                 <p>${search.desc}</p>
@@ -32,7 +35,9 @@ let generateCartItems = () => {
                                 <i onclick="increment(${id})" class="fa-solid fa-plus"></i>
                             </div>
                             <h3> ${item * search.price} lei</h3>
+                            
                         </div>
+                        <i onclick="removeItem(${id})" class="fa-solid fa-xmark" id="secondx"></i>
                     </div>
                         `   
         }).join(""))
@@ -64,7 +69,7 @@ let increment = (id) => {
 
     generateCartItems()
     update(selectedItem.id)
-    localStorage.setItem("data", JSON.stringify(basket))
+    sessionStorage.setItem("data", JSON.stringify(basket))
 }
 let decrement = (id) => {
     let selectedItem = id
@@ -78,7 +83,7 @@ let decrement = (id) => {
     update(selectedItem.id)
     basket = basket.filter((x) => x.item !== 0)
     generateCartItems()
-    localStorage.setItem("data", JSON.stringify(basket))
+    sessionStorage.setItem("data", JSON.stringify(basket))
 }
 
 let update = (id) => {
@@ -95,7 +100,7 @@ let removeItem = (id) => {
     basket = basket.filter((x) => x.id !== selectedItem.id)
     generateCartItems()
     TotalAmount()
-    localStorage.setItem("data", JSON.stringify(basket))
+    sessionStorage.setItem("data", JSON.stringify(basket))
     if (basket.length===0)
     window.location.reload()
 }
@@ -103,7 +108,7 @@ let removeItem = (id) => {
 let clearCart = () => {
     basket = []
     generateCartItems()
-    localStorage.setItem("data", JSON.stringify(basket))
+    sessionStorage.setItem("data", JSON.stringify(basket))
 }
 
 let TotalAmount = () => {
@@ -124,13 +129,9 @@ let TotalAmount = () => {
                 let { item, id } = x
                 let search = shopItemsData.find((y) => y.id === id) || []
                 return `
-                    <p>${search.desc}<span>x ${item}</span></p>
-                    <span>${search.price*item} Lei</span>
-                    
-                
-                `
-
-            })
+                    <p>${search.desc}<span>x ${item},</span><span>${search.price*item} Lei</span></p>
+                    `
+            }).join("")
     label.innerHTML = label.innerHTML + `<h4>Pret curier Rapid: 20 Lei
     <h2>Pret total : ${amount + 20} Lei</h2>
     <div class=containerC>

@@ -429,7 +429,14 @@ header .lastSection i {
      display:contents;
 }
 
-
+.cartDrawer {
+     position:fixed;
+     height:100vh;
+     width:350px;
+     top:0;
+     right:0;
+     background-color: white;
+}
 /******************************************
 /* MAIN
 /*******************************************/
