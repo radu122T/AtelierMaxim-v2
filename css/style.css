@@ -395,7 +395,7 @@ header .lastSection i {
 }
 .quantity {
      display:flex;
-     width:15px;
+     width:20px;
      height: 12px;
      background-color: white;
      color:black;
@@ -425,12 +425,13 @@ header .lastSection i {
      display: none;
 }
 
+
 .display {
      display:contents;
 }
 
 .cartDrawer {
-     display:flex;
+     display:none;
      position:fixed;
      height:100vh;
      width:450px;
@@ -439,20 +440,36 @@ header .lastSection i {
      background-color: white;
      color:black;
      overflow: scroll;
+     overflow-x: hidden;
      flex-direction: column;
 }
-
+.cartDrawer::-webkit-scrollbar {
+     width:0.5rem;
+}
+.cartDrawer::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+   }
+    
+.cartDrawer::-webkit-scrollbar-thumb {
+     background-color: darkgrey;
+     outline: 1px solid slategrey;
+   }
 .cartDrawer .totalAmount {
      order:2;
 }
 
-.cartDrawer h2:first-child {
+.titleOfCartDrawer{
+     display:flex;
      margin-bottom: 10px;
      border-bottom: 1px solid rgba(0, 0, 0, 0.123);
      padding:5%;
      text-align: center;
 }
 
+.titleOfCartDrawer h2 {
+     margin:0 auto;
+     padding-left:30px;
+}
 .cartDrawerDetails {
      display:grid;
      padding-top:5%;
@@ -508,13 +525,15 @@ header .lastSection i {
 }
 
 .checkout {
-     outline:0;
+     display:inline-block;
      border:black;
      background-color:#ec6336 ;
      border-radius:5px;
      width:250px;
      height:35px;
-     font-size:1rem;
+     font-size:1.2rem;
+     margin:0 auto;
+     padding-top:2px;
 }
 .priceDrawer {
      margin-bottom: 10px;
@@ -522,6 +541,28 @@ header .lastSection i {
      padding:5%;
      text-align: center;
 }
+.drawerQuantity {
+     display:flex;
+     justify-content: center;
+     
+}
+.drawerQuantity .quantity {
+     border: 1px solid black;
+}
+
+.cartDrawer {
+     transition: left 0.3s ease-in-out;
+}
+
+.cartDrawer:focus-within {
+     right: 0;
+}
+
+.cartDrawer:focus {
+     outline: 0;
+}
+
+
 /******************************************
 /* MAIN
 /*******************************************/

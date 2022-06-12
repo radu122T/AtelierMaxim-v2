@@ -1,3 +1,6 @@
+
+
+
 let shop = document.getElementById("shop")
 
 let basket = JSON.parse(sessionStorage.getItem("data")) || []
@@ -10,7 +13,7 @@ let generateShop = () => {
             return `
     <div class="item ${display} ${tip}" id=product-id-${id}>
       <div>
-          <img src=${img} alt="produs">
+            <a href="/produs.html"><img src=${img} alt="produs"></a>
             <div class="details">
                 <p>${desc}</p>
                 <div class="priceQuantity">
@@ -45,8 +48,6 @@ generateShop()
 
 let increment = (id) => {
     let selectedItem = id
-    let product=document.getElementById(`product-id-${selectedItem.id}`)
-    let addToCart= Array.from(product.getElementsByClassName('addToCart'))[0]
     let search = basket.find((x) => x.id === selectedItem.id)
     if (search === undefined ) {
       basket.push({
@@ -56,17 +57,23 @@ let increment = (id) => {
     } else {
       search.item += 1
     }
-    
+    let flex = () => {cartDrawer.style.display='flex'}
+    setTimeout(flex,1)
+
     update(selectedItem.id)
-  
     sessionStorage.setItem("data", JSON.stringify(basket))
-    window.location.reload()
+    
+    
+    
 }
 
+// window.location.reload()
 
 let decrement = (id) => {
+    
     let selectedItem = id
     let search = basket.find((x) => x.id === selectedItem.id)
+    
   
     if (search === undefined) return
     else if (search.item === 0) return
@@ -75,14 +82,16 @@ let decrement = (id) => {
     }
     update(selectedItem.id)
     basket = basket.filter((x) => x.item !== 0)
-    // console.log(basket)
+
     sessionStorage.setItem("data", JSON.stringify(basket))
   }
   let update = (id) => {
+    
     let search = basket.find((x) => x.id === id)
-    // console.log(search.item)
+
     document.getElementById(id).innerHTML = search.item
     calculation()
+    
   }
   
 let calculation = () => {
@@ -93,18 +102,17 @@ let calculation = () => {
 calculation()
 
 let removeItem = (id) => {
-    window.location.reload()
+    
     let selectedItem = id
-  // console.log(selectedItem.id)
+
     basket = basket.filter((x) => x.id !== selectedItem.id)
     TotalAmount()
     sessionStorage.setItem("data", JSON.stringify(basket))
-    if (basket.length===0)
-    window.location.reload()
+    
   }
 
 let cartDrawer = document.getElementById("cartDrawer")
-  console.log(cartDrawer)
+  
 let generateDrawer = () => {
     return (cartDrawer.innerHTML =cartDrawer.innerHTML+ basket
       .map((x) => {
@@ -115,8 +123,11 @@ let generateDrawer = () => {
             <div class='cartDrawerDetails'>
               <p><img src=${search.img} alt="" />${search.desc}</p>
               <div>${search.price}</div>
-              <div>${item}</div>
-            </div>
+              <div class="drawerQuantity">
+                  <i onclick="decrement(${id})" class="fa-solid fa-minus"></i>
+                  <div class="quantity">${item}</div>
+                  <i onclick="increment(${id})" class="fa-solid fa-plus"></i></div>
+              </div>
             <div class='erase' onclick="removeItem(${id})">Sterge</div>
           </div>
                 `   
@@ -124,7 +135,7 @@ let generateDrawer = () => {
 } 
 generateDrawer()
 let totalAmount = document.getElementById("totalAmount")
-console.log(totalAmount)
+
 let TotalAmount = () => {
   if (basket.length !== 0) {
       let amount = basket
@@ -137,7 +148,7 @@ let TotalAmount = () => {
   })
   .reduce((x, y) => x + y, 0)
   
-  // console.log(amount)
+
   totalAmount.innerHTML = basket
           .map((x) => {
               let { item, id } = x
@@ -152,13 +163,36 @@ let TotalAmount = () => {
         <h2>Pret total : ${amount + 20} Lei</h2>
     </div>
     <div class=containerC>
-        <button class="checkout">Vezi cosul</button>
+        <a href="/cart.html" class="checkout">Vezi cosul</a>
     </div>`
   } else return
 }
 
 TotalAmount()
-  //sortare
+  
+let drawerButton = document.getElementById('closeDrawer')
+
+
+drawerButton.addEventListener('click', () => {
+  cartDrawer.style.display='none'
+})
+
+document.addEventListener('keydown', function(event){
+	if(event.key === "Escape"){
+    cartDrawer.style.display = 'none'
+  }
+})
+
+let closeDrawer = () => {
+  document.addEventListener('click', (event) => {
+  const withinBoundaries = event.composedPath().includes(cartDrawer)
+  if (!withinBoundaries) {
+    cartDrawer.style.display = 'none'
+
+}})}
+
+closeDrawer()
+
 
 const shp =  document.getElementsByClassName('shop')[0]
 const buttonsSecond = document.querySelectorAll('[data-second]')

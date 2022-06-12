@@ -124,7 +124,7 @@ let TotalAmount = () => {
     .reduce((x, y) => x + y, 0)
     
     // console.log(amount)
-    label.innerHTML =label.innerHTML + basket
+    label.innerHTML = basket
             .map((x) => {
                 let { item, id } = x
                 let search = shopItemsData.find((y) => y.id === id) || []
@@ -132,7 +132,9 @@ let TotalAmount = () => {
                     <p>${search.desc}<span>x ${item},</span><span>${search.price*item} Lei</span></p>
                     `
             }).join("")
-    label.innerHTML = label.innerHTML + `<h4>Pret curier Rapid: 20 Lei
+    label.innerHTML = label.innerHTML + `
+    <h3> Produse </h3>
+    <h4>Pret curier Rapid: 20 Lei</h4>
     <h2>Pret total : ${amount + 20} Lei</h2>
     <div class=containerC>
         <button class="checkout">Plata cu cardul</button>

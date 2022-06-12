@@ -305,7 +305,9 @@ main img{
     font-weight:600;
 }
 .text-center {
-    margin:0 5% 5% 5%;
+    display:flex;
+    flex-direction: column;
+    margin:5%;
     border:1px solid white;
     padding:5%;
     
@@ -317,6 +319,7 @@ main img{
     padding-bottom: 10px;
     font-size:1.1rem;
     font-weight:600;
+    order:-1;
 }
 
 .text-center p span {
