@@ -47,6 +47,7 @@ generateShop()
 
 
 let increment = (id) => {
+    window.location.reload()
     let selectedItem = id
     let search = basket.find((x) => x.id === selectedItem.id)
     if (search === undefined ) {
@@ -58,19 +59,16 @@ let increment = (id) => {
       search.item += 1
     }
     let flex = () => {cartDrawer.style.display='flex'}
+    
     setTimeout(flex,1)
-
     update(selectedItem.id)
     sessionStorage.setItem("data", JSON.stringify(basket))
-    
-    
-    
 }
 
-// window.location.reload()
+// 
 
 let decrement = (id) => {
-    
+    window.location.reload()
     let selectedItem = id
     let search = basket.find((x) => x.id === selectedItem.id)
     
@@ -80,6 +78,7 @@ let decrement = (id) => {
     else {
       search.item -= 1
     }
+    
     update(selectedItem.id)
     basket = basket.filter((x) => x.item !== 0)
 
@@ -102,7 +101,7 @@ let calculation = () => {
 calculation()
 
 let removeItem = (id) => {
-    
+    window.location.reload()
     let selectedItem = id
 
     basket = basket.filter((x) => x.id !== selectedItem.id)
@@ -112,12 +111,14 @@ let removeItem = (id) => {
   }
 
 let cartDrawer = document.getElementById("cartDrawer")
-  
+let sti = () => {if (basket.length!=0) {cartDrawer.style.display='flex'}}
+sti()
 let generateDrawer = () => {
     return (cartDrawer.innerHTML =cartDrawer.innerHTML+ basket
       .map((x) => {
         let { id, item } = x
         let search = shopItemsData.find((y) => y.id === id) || []
+        
         return `
           <div class='container'>
             <div class='cartDrawerDetails'>
@@ -125,7 +126,7 @@ let generateDrawer = () => {
               <div>${search.price}</div>
               <div class="drawerQuantity">
                   <i onclick="decrement(${id})" class="fa-solid fa-minus"></i>
-                  <div class="quantity">${item}</div>
+                  <div class="quantity">${document.getElementById(id).innerHTML}</div>
                   <i onclick="increment(${id})" class="fa-solid fa-plus"></i></div>
               </div>
             <div class='erase' onclick="removeItem(${id})">Sterge</div>
