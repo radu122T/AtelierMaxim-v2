@@ -17,31 +17,27 @@ generateShop = {
                                     <div class="buttons">
                                         <span>Cantitate:</span>
                                         <div class='quantityButtons'>
-                                            <i onclick="decrement(${id})" class="fa-solid fa-minus"></i>
+                                            <i onclick="interact.decrement(${id})" class="fa-solid fa-minus"></i>
                                             <div id=${id} class="quantity">
                                                 ${search.item === undefined ? 0 : search.item}
                                                 </div>
-                                                <i onclick="increment(${id})" class="fa-solid fa-plus"></i>
+                                                <i onclick="interact.increment(${id})" class="fa-solid fa-plus"></i>
                                             </div>
                                         </div>
                                         <h2> ${price} Lei</h2>
                                     </div>
                                 <div class="productButtons">
-                                    <button onclick="increment(${id})" class='addToCart'>Adauga in cos</button>
+                                    <button onclick="interact.increment(${id})" class='addToCart'>Adauga in cos</button>
                                     <button><a href="/produs.html">Personalizeaza</a></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                         `
-          })
-          .join(""))
-      }
-      
-
+        })
+        .join(""))
+    }
 }
-generateShop.generateShopItems()
-
 
 interact = {
     increment(id) {
@@ -80,7 +76,7 @@ interact = {
     update(id) {
         let search = basket.find((x) => x.id === id)
         document.getElementById(id).innerHTML = search.item
-        calculation()
+        this.calculation()
     },
 
     calculation() {
@@ -96,17 +92,15 @@ interact = {
         total.totalAmount()
         sessionStorage.setItem("data", JSON.stringify(basket))
         
-      }
+    }
     
 }
 
-
-interact.calculation()
-
 generateCartDrawer = {
     cartDrawer : document.getElementById("cartDrawer"),
+    cartDrawerDisplay() {if (basket.length!=0) {this.cartDrawer.style.display='flex'}} ,
     generateDrawer(){
-    return (cartDrawer.innerHTML =cartDrawer.innerHTML+ basket
+    return (this.cartDrawer.innerHTML =this.cartDrawer.innerHTML+ basket
         .map((x) => {
             let { id, item } = x
             let search = shopItemsData.find((y) => y.id === id) || []
@@ -116,19 +110,17 @@ generateCartDrawer = {
                         <p><img src=${search.img} alt="" />${search.desc}</p>
                         <div>${search.price}</div>
                         <div class="drawerQuantity">
-                        <i onclick="decrement(${id})" class="fa-solid fa-minus"></i>
+                        <i onclick="interact.decrement(${id})" class="fa-solid fa-minus"></i>
                         <div class="quantity">${item}</div>
-                        <i onclick="increment(${id})" class="fa-solid fa-plus"></i></div>
+                        <i onclick="interact.increment(${id})" class="fa-solid fa-plus"></i></div>
                     </div>
-                    <div class='erase' onclick="removeItem(${id})">Sterge</div>
+                    <div class='erase' onclick="interact.removeItem(${id})">Sterge</div>
                 </div>
                 `   
     }).join(""))
-    },
-    cartDrawerDisplay() {if (basket.length!=0) {cartDrawer.style.display='flex'}} 
+    }
+    
 }
-
-generateCartDrawer.generateDrawer()
 
 
 total = {
@@ -164,29 +156,26 @@ total = {
 }
 
 
-total.totalAmount()
 
-let drawerButton = document.getElementById('closeDrawer')
+
 
 closeDrawer = {
-    button () {
-        drawerButton.addEventListener('click', () => {
-            cartDrawer.style.display='none'
-        })
-    },
+    drawerButton: document.getElementById('closeDrawer'),
+    
+    
     
     esc () {
         document.addEventListener('keydown', function(event){
         if(event.key === "Escape"){
-        cartDrawer.style.display = 'none'
+            generateCartDrawer.cartDrawer.style.display = 'none'
     }
     })},
 
     outside(){
         document.addEventListener('click', (event) => {
-        const withinBoundaries = event.composedPath().includes(cartDrawer)
+        const withinBoundaries = event.composedPath().includes(generateCartDrawer.cartDrawer)
         if (!withinBoundaries) {
-            cartDrawer.style.display = 'none'
+            generateCartDrawer.cartDrawer.style.display = 'none'
     }})}
 }
 
@@ -197,11 +186,11 @@ sortInter = {
     shop:document.getElementsByClassName('shop')[0],
     buttonsSecond: document.querySelectorAll('[data-second]'),
     inter() {
-        buttonsSecond.forEach(button => {
+        this.buttonsSecond.forEach(button => {
         button.addEventListener('click', () => {
         const offs = button.dataset.second
         if( offs === 'noutati') { 
-            Array.prototype.forEach.call(shp.children, child => {
+            Array.prototype.forEach.call(this.shop.children, child => {
                 if (child.classList.contains('noutatiProduse')){
                     child.classList.remove('noDisplay') 
                     child.classList.add('display')
@@ -213,7 +202,7 @@ sortInter = {
             })
         }
         else {
-            Array.prototype.forEach.call(shp.children, child => {
+            Array.prototype.forEach.call(this.shop.children, child => {
                 if (child.classList.contains('celeMaiVanduteProduse')){
                     child.classList.remove('noDisplay') 
                     child.classList.add('display')}
@@ -225,5 +214,24 @@ sortInter = {
         })
     })
 }}
+
+
+let main = () => {
+    interact.calculation()
+    total.totalAmount()
+    generateCartDrawer.cartDrawerDisplay()
+    generateShop.generateShopItems()
+    generateCartDrawer.generateDrawer()
+    closeDrawer.esc()
+    closeDrawer.outside()
+    sortInter.inter()
+    
+}
+button= ()=> {
+    closeDrawer.drawerButton.addEventListener('click', () => {
+        generateCartDrawer.cartDrawer.style.display='none'
+    })}
+button()
+main()
 
 
